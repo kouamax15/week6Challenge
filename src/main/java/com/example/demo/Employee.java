@@ -12,7 +12,8 @@ public class Employee {
     private String employeeName;
     private String employeePosition;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "director_id")
     private Department department;
 
     public long getEmployeeID() {
@@ -45,8 +46,5 @@ public class Employee {
 
     public void setDepartment(Department department) {
         this.department = department;
-    }
-
-    public Employee() {
     }
 }
